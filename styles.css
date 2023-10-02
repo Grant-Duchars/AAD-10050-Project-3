@@ -8,6 +8,8 @@
   --black: #171717;
   --title: "Rowdies", cursive;
   --text: "Cabin", sans-serif;
+  font-family: var(--text);
+  color: var(--black);
 }
 
 html,
@@ -15,21 +17,28 @@ body {
   margin: 0;
   height: 100vh;
   background-color: var(--dark);
-  font-family: var(--text);
+  padding-top: 25px;
 }
 
 main {
   padding: 2vw;
 }
 
-h1 {
+hr {
+  color: var(--secondary);
+  width: 100%;
+  border-width: 2px;
+}
+
+h1,
+h3 {
   font-family: var(--title);
   color: var(--light);
 }
 
-p {
+p,
+address {
   font-size: larger;
-  color: var(--black);
 }
 
 a:link,
@@ -41,26 +50,71 @@ a:hover {
   color: var(--dark);
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 25%;
+}
+
+form * {
+  margin: 3px;
+}
+
 .centered {
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
+.centered ul {
+  text-align: left;
+}
+
 .box {
   background-color: var(--primary);
   padding: 2vw;
-  border-style: solid;
+  border: 5px solid var(--secondary);
   border-radius: 50px;
-  border-color: var(--secondary);
-  border-width: 5px;
+  margin-bottom: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  max-width: 40vw;
+}
+
+.column * {
+  margin: 5px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.image {
+  margin: 1vw;
+  height: 30vw;
+  width: 45vw;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Navbar Styling */
 nav {
-  border-bottom-style: solid;
-  border-bottom-color: var(--secondary);
-  border-bottom-width: 5px;
+  border-bottom: 5px solid var(--secondary);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 nav ol {
@@ -75,8 +129,7 @@ nav li {
   float: left;
 }
 
-nav li a:link,
-nav li a:visited,
+nav li a,
 .nav-dropdown-btn {
   display: inline-block;
   color: var(--light);
@@ -87,6 +140,7 @@ nav li a:visited,
 
 nav li a:hover,
 .nav-dropdown:hover .nav-dropdown-btn {
+  color: var(--light);
   background-color: var(--secondary);
 }
 
@@ -148,4 +202,15 @@ nav li a:hover,
 
 #Home-Content h1 {
   font-size: 7em;
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .row p {
+    text-align: justify;
+  }
 }
